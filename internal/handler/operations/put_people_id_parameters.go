@@ -15,7 +15,7 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/Kartochnik010/test-effectivemobile-jan/models"
+	"github.com/Kartochnik010/test-effectivemobile-jan/internal/models"
 )
 
 // NewPutPeopleIDParams creates a new PutPeopleIDParams object

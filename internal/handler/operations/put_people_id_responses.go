@@ -10,7 +10,7 @@ import (
 
 	"github.com/go-openapi/runtime"
 
-	"github.com/Kartochnik010/test-effectivemobile-jan/models"
+	"github.com/Kartochnik010/test-effectivemobile-jan/internal/models"
 )
 
 // PutPeopleIDOKCode is the HTTP code returned for type PutPeopleIDOK

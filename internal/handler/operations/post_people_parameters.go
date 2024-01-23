@@ -13,7 +13,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/runtime/middleware"
 
-	"github.com/Kartochnik010/test-effectivemobile-jan/models"
+	"github.com/Kartochnik010/test-effectivemobile-jan/internal/models"
 )
 
 // NewPostPeopleParams creates a new PostPeopleParams object
