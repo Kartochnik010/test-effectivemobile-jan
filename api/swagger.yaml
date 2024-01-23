@@ -1,0 +1,124 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "Enrichment Service API"
+  description: "API to enrich and manage information about individuals"
+basePath: "/api"
+schemes:
+  - "http"
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+
+paths:
+  /people:
+    get:
+      summary: "Get people with filters and pagination"
+      parameters:
+        - name: "page"
+          in: "query"
+          description: "Page number for pagination"
+          type: "integer"
+          default: 1
+        - name: "limit"
+          in: "query"
+          description: "Number of items per page"
+          type: "integer"
+          default: 10
+      responses:
+        200:
+          description: "List of people"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Person"
+    post:
+      summary: "Add a new person"
+      parameters:
+        - name: "person"
+          in: "body"
+          description: "Person information"
+          required: true
+          schema:
+            $ref: "#/definitions/PersonInput"
+      responses:
+        201:
+          description: "Person added successfully"
+          schema:
+            $ref: "#/definitions/Person"
+
+  /people/{id}:
+    get:
+      summary: "Get person by ID"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "ID of the person to retrieve"
+          type: "integer"
+          required: true
+      responses:
+        200:
+          description: "Person information"
+          schema:
+            $ref: "#/definitions/Person"
+    put:
+      summary: "Update person by ID"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "ID of the person to update"
+          type: "integer"
+          required: true
+        - name: "person"
+          in: "body"
+          description: "Updated person information"
+          required: true
+          schema:
+            $ref: "#/definitions/PersonInput"
+      responses:
+        200:
+          description: "Person updated successfully"
+          schema:
+            $ref: "#/definitions/Person"
+    delete:
+      summary: "Delete person by ID"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "ID of the person to delete"
+          type: "integer"
+          required: true
+      responses:
+        204:
+          description: "Person deleted successfully"
+
+definitions:
+  Person:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      name:
+        type: "string"
+      surname:
+        type: "string"
+      patronymic:
+        type: "string"
+      age:
+        type: "integer"
+      gender:
+        type: "string"
+      nationality:
+        type: "string"
+
+  PersonInput:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      surname:
+        type: "string"
+      patronymic:
+        type: "string"
+
